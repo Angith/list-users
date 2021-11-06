@@ -4,6 +4,9 @@
   "description": "This is a simple application to add the users and list the added users.",
   "main": "index.js",
   "scripts": {
+    "docker:up": "docker-compose up -d",
+    "start": "node scripts/start_api.js",
+    "docker:down": "docker-compose down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

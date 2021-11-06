@@ -1,0 +1,68 @@
+<!-- Load Font Awesome Icon Library -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="userList.css">
+  <title> Users List </title>
+</head>
+
+<body class="home-body" onload="getUsers()">
+  <h1 style="text-align:center;">USERS</h1>
+  <div id="dvTable"></div>
+  </div>
+  <script>
+
+      async function getUsers() {
+        const url = 'http://0.0.0.0:3000/listusers/users'
+        const response = await fetch(url);
+        const json = await response.json();
+        if (response.status == 200) {
+          GenerateTable(json.users);
+        } else {
+          GenerateTable([]);
+        }
+      }
+
+    function GenerateTable(items) {
+        //Build an array containing Customer records.
+        var notes = new Array();
+        notes.push(["Name", "Email"]);
+        for (let item of items) {
+          const array = [item.firstname, item.email];
+          notes.push(array)
+        }
+
+ 
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        table.border = "1";
+ 
+        //Get the count of columns.
+        var columnCount = notes[0].length;
+ 
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = notes[0][i];
+            row.appendChild(headerCell);
+        }
+ 
+        //Add the data rows.
+        for (var i = 1; i < notes.length; i++) {
+            row = table.insertRow(-1);
+            for (var j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1);
+                cell.innerHTML = notes[i][j];
+            }
+        }
+ 
+        var dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+    }
+  </script>
+</body>
+</html>

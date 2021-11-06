@@ -55,8 +55,8 @@
         }
         const response = await fetch(url, params);
         if (response.status == 200) {
-          alert("Registered Successfully, please Login");
-          window.location.href = "addUser.html";
+          alert("User added successfully");
+          window.location.href = "userList.html";
         } else {
           alert("Unexpected Error! Registration failed");
         }
