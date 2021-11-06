@@ -39,7 +39,10 @@ class AddUsersController extends Controller {
             ];
 
             const info = await this.service.add(values);
-            return this.response.status(200).send(info);
+            return this.response.status(200).send({
+                status: 200,
+                user: info
+            });
         } catch (err) {
             return this.response.status(500).send({
                 status: 500,
