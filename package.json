@@ -1,0 +1,19 @@
+{
+  "name": "list-users",
+  "version": "1.0.0",
+  "description": "This is a simple application to add the users and list the added users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angith/list-users.git"
+  },
+  "author": "Angith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Angith/list-users/issues"
+  },
+  "homepage": "https://github.com/Angith/list-users#readme"
+}
