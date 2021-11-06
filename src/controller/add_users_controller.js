@@ -4,7 +4,7 @@ const Controller = require("./controller");
 const constants = require("../constants");
 const Service = require("../service/add_users_service");
 
-class GetUsersController extends Controller {
+class AddUsersController extends Controller {
     constructor(db, request, response) {
         super(db, request, response);
         this.service = new Service(db);
@@ -50,4 +50,4 @@ class GetUsersController extends Controller {
     }
 }
 
-module.exports = GetUsersController;
+module.exports = AddUsersController;
