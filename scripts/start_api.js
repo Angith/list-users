@@ -6,7 +6,7 @@ const Server = require("../src/classes/server");
 async function start() {
     const pool = await connectToDatabase();
     await createTables(pool);
-    const server = new Server();
+    const server = new Server(pool);
     server.startServer();
 }
 

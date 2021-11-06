@@ -6,8 +6,8 @@ const app = express();
 const port = 3000;
 
 class Server {
-    constructor() {
-
+    constructor(db) {
+        this.db = db;
     }
 
     startServer() {
@@ -15,7 +15,7 @@ class Server {
         app.use(cors());
 
         const router = new Router(app);
-        router.apply();
+        router.apply(this.db);
 
         app.listen(port, ()=> {
             console.log(`app atarted listening at http://localhost:${port}`);
